@@ -1,0 +1,20 @@
+# Visual Studio temporary files
+.vs/
+
+# Build results
+bin/
+obj/
+
+# Log files
+Log/
+
+# Publish profiles
+PublishProfiles/
+
+# JetBrains IDE files (like IntelliJ IDEA)
+.idea/
+
+# Launch settings for ASP.NET Core projects
+launchSettings.json
+
+appsettings.json
