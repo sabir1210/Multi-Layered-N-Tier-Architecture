@@ -13,6 +13,7 @@ namespace NTier.Business.Interfaces
     public interface IGoalService
     {
         Task<IEnumerable<GoalDTO>> GetAllGoalsAsync();
+        Task<IEnumerable<GoalDTO>> GetGoalsByStartDateTodayAsync();
         Task<GoalDTO> GetGoalByIdAsync(Guid id);
         Task<GoalDTO> CreateGoalAsync(CreateGoalDTO createGoalDto);
         Task<GoalDTO> UpdateGoalAsync(Guid id, UpdateGoalDTO updateGoalDto);

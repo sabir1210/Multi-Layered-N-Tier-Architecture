@@ -26,6 +26,13 @@ namespace NTier.Presentation.Controllers
             return Ok(goals);
         }
 
+        [HttpGet("today")]
+        public async Task<IActionResult> GetGoalsByStartDateToday()
+        {
+            var goals = await _goalService.GetGoalsByStartDateTodayAsync();
+            return Ok(goals);
+        }
+
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> GetGoalById(Guid id)
         {

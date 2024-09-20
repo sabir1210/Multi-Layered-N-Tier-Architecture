@@ -19,6 +19,19 @@ namespace NTier.Business.Services
             var goalDtos = _mapper.Map<IEnumerable<GoalDTO>>(goals);
             return goalDtos;
         }
+        public async Task<IEnumerable<GoalDTO>> GetGoalsByStartDateTodayAsync()
+        {
+            var today = DateTime.UtcNow.Date;
+            var goalRepository = _unitOfWork.GetRepository<Goal>();
+
+            // Get goals where StartDate is today and order by descending StartDate
+            var goals = await goalRepository.GetAllAsync(g => g.StartDate.Date == today);
+            var orderedGoals = goals.OrderByDescending(g => g.StartDate);
+
+            var goalDtos = _mapper.Map<IEnumerable<GoalDTO>>(orderedGoals);
+            return goalDtos;
+        }
+
 
         public async Task<GoalDTO> GetGoalByIdAsync(Guid id)
         {
